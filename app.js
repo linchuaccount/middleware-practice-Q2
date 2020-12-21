@@ -3,7 +3,15 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//app.use(function (req, res, next){...
+//將使用者送入的每個req在進入路由處理前，先經過以下的middleware處理
+app.use(function (req, res, next) {
+  console.log(`${req.method} from ${req.originalUrl}`);
+  next()
+})
+
 app.get('/', (req, res) => {
+  // console.log(`${req.method} from ${req.originalUrl}`);
   res.send('列出全部 Todo')
 })
 
