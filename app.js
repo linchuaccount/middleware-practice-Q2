@@ -6,7 +6,8 @@ const port = 3000
 //app.use(function (req, res, next){...
 //將使用者送入的每個req在進入路由處理前，先經過以下的middleware處理
 app.use(function (req, res, next) {
-  console.log(`${req.method} from ${req.originalUrl}`);
+  const date = new Date()
+  console.log(date.toLocaleString(), `${req.method} from ${req.originalUrl}`);
   next()
 })
 
