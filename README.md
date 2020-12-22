@@ -1,9 +1,10 @@
 # middleware 練習
-當網頁執行時，終端機會顯示伺服器接收到用戶request的時間(local time)、HTTP method和URL
+當網頁執行時，終端機會顯示伺服器接收到用戶request的時間(local time)、HTTP method、URL，以及獲得request到執行response所花費的時間
 
 # 環境需求
 node.js v10.15.0  
 express v4.17.1  
+response-time v2.3.2  
 nodemom
 
 # 執行方法

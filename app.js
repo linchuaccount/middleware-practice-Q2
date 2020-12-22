@@ -1,17 +1,17 @@
 // app.js
 const express = require('express')
+const responseTime = require('response-time')
 const app = express()
 const port = 3000
 
 //app.use(function (req, res, next){...
 //將使用者送入的每個req在進入路由處理前，先經過以下的middleware處理
-app.use(function (req, res, next) {
+app.use(responseTime((req, res, time) => {
   const date = new Date()
   if (req.originalUrl !== "/favicon.ico") {
-    console.log(date.toLocaleString(), `| ${req.method} from ${req.originalUrl}`)
+    console.log(date.toLocaleString(), `| ${req.method} from ${req.originalUrl} | total time: ${time} ms`)
   }
-  next()
-})
+}))
 
 app.get('/', (req, res) => {
   // console.log(`${req.method} from ${req.originalUrl}`);
